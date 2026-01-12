@@ -1,0 +1,18 @@
+
+# Python/Streamlit
+__pycache__/
+*.pyc
+.venv/
+.env
+
+# Logs y artefactos grandes
+logs/
+models/
+*.log
+
+# Sistemas
+.DS_Store
+Thumbs.db
+
+# Datos pesados
+data/

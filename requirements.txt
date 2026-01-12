@@ -1,0 +1,18 @@
+# Requirements for AI Escriba TFM
+
+# Core dependencies
+ollama
+faster-whisper
+torch
+streamlit
+evaluate
+psutil
+pandas
+
+# Auditor mejorado (v0.2) - NLP/ML enhancements
+transformers>=4.30.0
+sentence-transformers>=2.2.0
+spacy>=3.5.0
+
+# Note: Descargar modelo spaCy con:
+# python -m spacy download es_core_news_sm
