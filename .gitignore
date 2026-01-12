@@ -14,8 +14,9 @@ models/
 .DS_Store
 Thumbs.db
 
-# Datos pesados
+# Datos pesados (excepción para ejemplos)
 data/
+!data/conversaciones/**
 
 # Streamlit y editor
 .streamlit/
