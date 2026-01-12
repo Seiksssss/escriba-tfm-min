@@ -16,3 +16,9 @@ Thumbs.db
 
 # Datos pesados
 data/
+
+# Streamlit y editor
+.streamlit/
+.vscode/
+.pytest_cache/
+*.ipynb_checkpoints
