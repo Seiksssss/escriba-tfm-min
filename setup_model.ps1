@@ -5,21 +5,16 @@ Write-Host "`n========================================" -ForegroundColor Cyan
 Write-Host "  Descargando y configurando Aloe-Beta-8B" -ForegroundColor Cyan
 Write-Host "========================================`n" -ForegroundColor Cyan
 
-# Crear estructura de carpetas necesaria
+# Crear carpetas necesarias (logs y models)
 Write-Host "[0/4] Creando estructura de carpetas..." -ForegroundColor Yellow
-$dirs = @(
-    "data",
-    "data/conversaciones",
-    "data/mtsdialog_es",
-    "data/mtsdialog_en",
-    "logs",
-    "models"
-)
+$dirs = @("logs", "models")
 
 foreach ($dir in $dirs) {
     if (-not (Test-Path $dir)) {
         New-Item -ItemType Directory -Path $dir -Force | Out-Null
         Write-Host "  ✅ Creada: $dir" -ForegroundColor Green
+    } else {
+        Write-Host "  ✅ Ya existe: $dir" -ForegroundColor Green
     }
 }
 
@@ -66,22 +61,27 @@ if (Test-Path "Modelfile") {
 }
 
 # Verificar estructura final
-Write-Host "`n[4/4] Verificando estructura de carpetas..." -ForegroundColor Yellow
-$checkDirs = @(
-    "data/conversaciones",
-    "data/mtsdialog_es",
-    "data/mtsdialog_en",
-    "logs",
-    "models"
-)
+Write-Host "`n[4/4] Verificando estructura..." -ForegroundColor Yellow
+$checkDirs = @("logs", "models")
 
 $allOk = $true
 foreach ($dir in $checkDirs) {
     if (Test-Path $dir) {
         Write-Host "  ✅ Encontrada: $dir" -ForegroundColor Green
     } else {
-        Write-Host "  ⚠️ Falta: $dir (se creará al ejecutar app.py)" -ForegroundColor Yellow
+        Write-Host "  ⚠️ Falta: $dir" -ForegroundColor Yellow
         $allOk = $false
+    }
+}
+
+Write-Host "`nArchivos de datos disponibles:" -ForegroundColor Cyan
+$dataDirs = @("data/conversaciones", "data/mtsdialog_es", "data/mtsdialog_en")
+foreach ($dir in $dataDirs) {
+    if (Test-Path $dir) {
+        $count = (Get-ChildItem $dir -Recurse -File | Measure-Object).Count
+        Write-Host "  ✅ $dir ($count archivos)" -ForegroundColor Green
+    } else {
+        Write-Host "  ℹ️  $dir (no incluido en este clone)" -ForegroundColor Gray
     }
 }
 
