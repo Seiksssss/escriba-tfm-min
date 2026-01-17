@@ -1,15 +1,17 @@
 # 🚀 GUÍA RÁPIDA PARA EL PROFESOR
 
-Pasos para descargar, instalar y ejecutar **Escriba Médico Soberano** en tu equipo.
+## Opción A: Descarga y Setup Automático (RECOMENDADO)
 
-## 1. Clonar el Repositorio
+Pasos para descargar, instalar y ejecutar **Escriba Médico Soberano** automáticamente.
+
+### 1. Clonar el Repositorio
 
 ```powershell
 git clone https://github.com/Seiksssss/escriba-tfm-min.git
 cd escriba-tfm-min
 ```
 
-## 2. Instalar Ollama (OBLIGATORIO)
+### 2. Instalar Ollama (OBLIGATORIO)
 
 Descarga e instala Ollama desde: **https://ollama.com/download**
 
@@ -21,21 +23,16 @@ ollama serve
 
 Déjalo corriendo (es el servidor de modelos).
 
-## 3. En OTRA terminal: Descargar Modelo Aloe-Beta-8B
+### 3. En OTRA terminal: Ejecutar script de descarga automática
 
 ```powershell
-ollama pull hf.co/mradermacher/Llama3.1-Aloe-Beta-8B-GGUF:Q4_K_M
+.\setup_model.ps1
 ```
 
-Esto tardará unos 5-10 minutos (descarga ~5-7 GB).
-
-## 3b. (IMPORTANTE) Crear Modelo Personalizado con Prompt Médico
-
-```powershell
-ollama create escriba-aloe-v3 -f Modelfile
-```
-
-Este comando crea el modelo personalizado que usará la app. **Sin este paso, no tendrá el prompt médico especializado.**
+Este script automáticamente:
+- ✅ Descarga Aloe-Beta-8B (5-7 GB)
+- ✅ Crea el modelo personalizado `escriba-aloe-v3`
+- ✅ Todo listo en ~15-20 minutos
 
 ## 4. Instalar Dependencias de Python
 
@@ -55,6 +52,19 @@ streamlit run app.py
 ```
 
 Se abrirá automáticamente en tu navegador (http://localhost:8501).
+
+---
+
+## Opción B: Docker (TODO en un contenedor)
+
+Si prefieres evitar instalaciones, usa Docker:
+
+```bash
+docker build -t escriba-medico:latest .
+docker run -p 8501:8501 escriba-medico:latest
+```
+
+Ver más en [DOCKER.md](DOCKER.md).
 
 ---
 
@@ -81,27 +91,15 @@ Se abrirá automáticamente en tu navegador (http://localhost:8501).
 
 ---
 
-## ⚠️ Requisitos Mínimos
+## ⏰ Tiempo de Instalación
 
-- **Windows 10+, macOS o Linux**
-- **Python 3.11**
-- **RAM:** 16 GB (mínimo)
-- **GPU NVIDIA** (opcional pero recomendado)
-- **Conexión a internet** (solo para descargas iniciales)
+| Paso | Tiempo |
+|------|--------|
+| Clonar repo | 1 min |
+| Instalar Ollama | 5 min |
+| Ejecutar `setup_model.ps1` | 10-15 min |
+| Instalar Python deps | 5 min |
+| Ejecutar app | 1 min |
+| **Total** | **~30 min** |
 
-## 🆘 Solución de Problemas
-
-| Problema | Solución |
-|----------|----------|
-| "ollama command not found" | Reinicia la terminal después de instalar Ollama |
-| "Connection refused" a Ollama | Verifica que `ollama serve` esté corriendo en otra terminal |
-| App lenta / no responde | Asegúrate de tener RAM suficiente (16+ GB) |
-| Modelo no se descarga | Ejecuta manualmente: `ollama pull hf.co/mradermacher/Llama3.1-Aloe-Beta-8B-GGUF:Q4_K_M` |
-
-## 📞 Contacto
-
-Repositorio: https://github.com/Seiksssss/escriba-tfm-min
-
----
-
-**¡Listo!** Si todo va bien, deberías poder transcribir audios y generar notas SOAP automáticamente. 🎉
+**O con Docker:** ~30 min para compilar la primera vez (luego es instantáneo).
