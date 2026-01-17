@@ -1,0 +1,116 @@
+{
+  "verificaciones": [
+    {
+      "frase": "S: María Ángeles presenta estreñimiento severo, definiendo como la incapacidad para ir al baño duran",
+      "estado": "PARCIAL",
+      "evidencia": "Hola, María Ángeles. ¿Por qué ha venido? Pues tengo estreñimiento severo. ¿A qué",
+      "confianza": 0.184
+    },
+    {
+      "frase": "No ha experimentado gases ni heces sólidas en 28 años.",
+      "estado": "PARCIAL",
+      "evidencia": "Nada. Descubrí el micralas cuando me lo dieron cuando tuve a mi hija hace 28 año",
+      "confianza": 0.07
+    },
+    {
+      "frase": "Ha estado tomando Micralas diariamente desde el parto de su hija hace 28 años.",
+      "estado": "VERIFICADO",
+      "evidencia": "Nada. Descubrí el micralas cuando me lo dieron cuando tuve a mi hija hace 28 año",
+      "confianza": 0.902
+    },
+    {
+      "frase": "Comenta una dieta regular con café, leche, jamón y ocasionalmente cocido o ensalada.",
+      "estado": "VERIFICADO",
+      "evidencia": "Pues en un día me levanto por la mañana y me tomo el café con leche a las seis m",
+      "confianza": 0.666
+    },
+    {
+      "frase": "Bebe aproximadamente 1,5 litros de agua al día.",
+      "estado": "VERIFICADO",
+      "evidencia": "¿Y agua? ¿Cuánta bebe al día? El litro y medio que me bebo trabajando por la mañ",
+      "confianza": 0.763
+    },
+    {
+      "frase": "Actualmente toma 4 medicamentos: Adiro, Nexium, Orfidal y Torbastatina.\n\n",
+      "estado": "VERIFICADO",
+      "evidencia": "No dormía nada. Y gracias al orfidal ahora duermo. Y también me tomo por la noch",
+      "confianza": 0.793
+    },
+    {
+      "frase": "O: No se reportan síntomas adicionales como hinchazón abdominal o dolor estomacal.",
+      "estado": "PARCIAL",
+      "evidencia": "Casi siempre sí. A veces me espero dos días, pero casi siempre sí. Y es la única",
+      "confianza": 0.041
+    },
+    {
+      "frase": "Las heces son líquidas.",
+      "estado": "VERIFICADO",
+      "evidencia": "¿Y cuando va al baño las heces son líquidas o son sólidas? Son líquidas. Sólidas",
+      "confianza": 0.979
+    },
+    {
+      "frase": "No hay signos de deshidratación ni alteraciones en el estado general.\n\n",
+      "estado": "PARCIAL",
+      "evidencia": "Y el nexium es para que el estómago no tenga reflujo. Luego por la noche me tomo",
+      "confianza": 0.004
+    },
+    {
+      "frase": "A: Estreñimiento severo crónico, probablemente relacionado con la falta de fibra dietética y depende",
+      "estado": "PARCIAL",
+      "evidencia": "Pues nada, vamos a probar intentando mejorar un poquito la dieta.  Vamos a... le",
+      "confianza": 0.003
+    },
+    {
+      "frase": "Es posible que la medicación para la sangre fluida (Adiro y Nexium) contribuya al problema.",
+      "estado": "VERIFICADO",
+      "evidencia": "El adiro es para que la sangre se me haga más fluida. Y el nexium es para que la",
+      "confianza": 0.99
+    },
+    {
+      "frase": "La endoscopia o colonoscopia serán útiles para evaluar la motilidad intestinal y cualquier otra pato",
+      "estado": "VERIFICADO",
+      "evidencia": "Y nada, y al digestivo. A ver que le haga una endoscopia. Muy bien. Una colonosc",
+      "confianza": 0.608
+    },
+    {
+      "frase": "P: Iniciar dieta rica en fibra y aumentar el consumo de agua.",
+      "estado": "VERIFICADO",
+      "evidencia": " Vamos a... le voy a dar una dieta rica en fibra. Vale. Y vamos a aumentar el co",
+      "confianza": 0.983
+    },
+    {
+      "frase": "Recetar laxantes estópicos para ayudar a regular las deposiciones.",
+      "estado": "PARCIAL",
+      "evidencia": "Muy bien. Una colonoscopia me refiero. Lo que quieras. Cualquiera de las dos.",
+      "confianza": 0.026
+    },
+    {
+      "frase": "Programar una endoscopia o colonoscopia con el gastroenterólogo.",
+      "estado": "VERIFICADO",
+      "evidencia": "Y nada, y al digestivo. A ver que le haga una endoscopia. Muy bien. Una colonosc",
+      "confianza": 0.65
+    }
+  ],
+  "omisiones": [
+    {
+      "dato": "Arde",
+      "razon": "Revisar si estos síntomas/datos deberían estar en el SOAP"
+    },
+    {
+      "dato": "Duele",
+      "razon": "Revisar si estos síntomas/datos deberían estar en el SOAP"
+    },
+    {
+      "dato": "Pastilla",
+      "razon": "Revisar si estos síntomas/datos deberían estar en el SOAP"
+    }
+  ],
+  "metricas": {
+    "fidelidad": 80.0,
+    "alucinaciones": 0,
+    "omisiones": 3
+  },
+  "recomendaciones": [
+    "📝 Síntomas o datos relevantes no incluidos en el SOAP"
+  ]
+}

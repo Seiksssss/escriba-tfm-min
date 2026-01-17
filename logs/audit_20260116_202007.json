@@ -1,0 +1,96 @@
+{
+  "verificaciones": [
+    {
+      "frase": "S: Lourdes Lancho presenta un dolor crónico en la zona del trapecio izquierdo desde siempre, que se ",
+      "estado": "PARCIAL",
+      "evidencia": "A veces me aumenta con algún ejercicio o me aumenta con alguna, pero generalment",
+      "confianza": 0.245
+    },
+    {
+      "frase": "El dolor es fijo y no irradia hacia el brazo o cabeza.",
+      "estado": "PARCIAL",
+      "evidencia": "¿El dolor entonces le corre hacia el brazo, hacia la cabeza alguna vez o nunca? ",
+      "confianza": 0.212
+    },
+    {
+      "frase": "No ha probado medicación para calmar el dolor pero encuentra alivio con calor local.",
+      "estado": "PARCIAL",
+      "evidencia": "Prefería ejercicio, pero bueno, si no...  Bueno, pues sí. Como lleva mucho tiemp",
+      "confianza": 0.192
+    },
+    {
+      "frase": "Ha notado una sensación de pérdida de estabilidad al girar el cuello.\n\n",
+      "estado": "VERIFICADO",
+      "evidencia": "O cuando gira el cuello un poco también o cuando mira hacia el cielo. Bueno, me ",
+      "confianza": 0.838
+    },
+    {
+      "frase": "O: Examen clínico revela dolor en la zona del trapecio izquierdo que se intensifica al lateralizar e",
+      "estado": "VERIFICADO",
+      "evidencia": "Pues nada, ahora hacemos el examen clínico. Vemos que los signos clínicos aparec",
+      "confianza": 0.824
+    },
+    {
+      "frase": "Maniobra de compresión radicular sugiere posible compromiso de raíz nerviosa.",
+      "estado": "VERIFICADO",
+      "evidencia": "En la maniobra de compresión radicular aparece dolor irradiado hacia el brazo. E",
+      "confianza": 0.999
+    },
+    {
+      "frase": "Radiografía cervical no muestra anomalías significativas.\n\n",
+      "estado": "PARCIAL",
+      "evidencia": "Entonces le haremos en principio algunas pruebas sencillas. Como ya tiene usted ",
+      "confianza": 0.402
+    },
+    {
+      "frase": "A: Dolor crónico en el cuello con posibles signos de irritación de la raíz nerviosa.",
+      "estado": "VERIFICADO",
+      "evidencia": "En la maniobra de compresión radicular aparece dolor irradiado hacia el brazo. E",
+      "confianza": 0.797
+    },
+    {
+      "frase": "Contractura muscular del trapecio izquierdo es probablemente responsable de la mayoría del dolor.\n\n",
+      "estado": "VERIFICADO",
+      "evidencia": "Y entre tanto, la mayoría del dolor que describe se debe a una contractura de lo",
+      "confianza": 0.918
+    },
+    {
+      "frase": "P: Se solicitará una resonancia magnética para evaluar compresión de las raíces nerviosas.",
+      "estado": "PARCIAL",
+      "evidencia": "Y bueno, con estos elementos, la duración, la cronicidad, es conveniente realiza",
+      "confianza": 0.249
+    },
+    {
+      "frase": "Se prescribirán antiinflamatorios y un relajante muscular.",
+      "estado": "VERIFICADO",
+      "evidencia": "Y entre tanto, la mayoría del dolor que describe se debe a una contractura de lo",
+      "confianza": 0.94
+    },
+    {
+      "frase": "Se proporcionará una hoja de ejercicios y recomendaciones de uso de calor local.",
+      "estado": "VERIFICADO",
+      "evidencia": "Y entre tanto, pues le vamos a dar una hoja de ejercicios, una recomendación de ",
+      "confianza": 0.998
+    },
+    {
+      "frase": "Se revisarán los resultados de la resonancia para decidir el tratamiento más adecuado.",
+      "estado": "VERIFICADO",
+      "evidencia": "Y entre tanto, pues le vamos a dar una hoja de ejercicios, una recomendación de ",
+      "confianza": 0.93
+    }
+  ],
+  "omisiones": [
+    {
+      "dato": "Duele",
+      "razon": "Revisar si estos síntomas/datos deberían estar en el SOAP"
+    }
+  ],
+  "metricas": {
+    "fidelidad": 81.0,
+    "alucinaciones": 0,
+    "omisiones": 1
+  },
+  "recomendaciones": [
+    "📝 Síntomas o datos relevantes no incluidos en el SOAP"
+  ]
+}
