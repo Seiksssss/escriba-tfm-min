@@ -43,7 +43,7 @@ pip install -r requirements.txt
 python -m spacy download es_core_news_sm
 ```
 
-Si prefiere un arranque asistido en Windows, use [github_min/start.ps1](start.ps1).
+Si prefiere un arranque asistido en Windows, use [start.ps1](start.ps1).
 
 ## Ejecutar la app
 
@@ -65,9 +65,15 @@ En otra terminal, descarga el modelo Aloe-Beta-8B:
 ollama pull hf.co/mradermacher/Llama3.1-Aloe-Beta-8B-GGUF:Q4_K_M
 ```
 
-Ver instrucciones detalladas: [MODELO_ALOE_BETA.md](MODELO_ALOE_BETA.md)
+**IMPORTANTE:** Crea el modelo personalizado con nuestro prompt médico:
 
-La app detectará Ollama automáticamente. Si necesita cambiar el host, hágalo desde la barra lateral (`OLLAMA_HOST`).
+```powershell
+ollama create escriba-aloe-v3 -f Modelfile
+```
+
+Ver instrucciones detalladas: [MODELO_ALOE_BETA.md](MODELO_ALOE_BETA.md) y [MODELFILE_EXPLICACION.md](MODELFILE_EXPLICACION.md)
+
+La app detectará Ollama automáticamente y usará `escriba-aloe-v3` (nuestro modelo personalizado con prompt médico).
 
 ## Arquitectura (alto nivel)
 
@@ -93,14 +99,17 @@ Ver más detalles en [MODELO_ALOE_BETA.md](MODELO_ALOE_BETA.md).
 
 ## Estructura mínima incluida
 
-- [MODELO_ALOE_BETA.md](MODELO_ALOE_BETA.md): **instrucciones detalladas para configurar Aloe-Beta-8B.**
+- [GUIA_RAPIDA.md](GUIA_RAPIDA.md): **Pasos para el profesor (recomendado empezar aquí).**
+- [MODELO_ALOE_BETA.md](MODELO_ALOE_BETA.md): Instrucciones para instalar Aloe-Beta-8B.
+- [MODELFILE_EXPLICACION.md](MODELFILE_EXPLICACION.md): **Explicación del prompt médico personalizado.**
+- [Modelfile](Modelfile): Configuración del modelo con REGLAS DE ORO médicas.
 - [app.py](app.py): UI Streamlit + lógica principal.
-- [auditor_mejorado.py](auditor_mejorado.py): auditoría con MNLI + embeddings.
-- [requirements.txt](requirements.txt): dependencias.
-- [cie10_2026.json](cie10_2026.json): catálogo CIE-10 (2026).
-- [.gitignore](.gitignore): excluye venv, logs y cachés.
-- [start.ps1](start.ps1): script opcional de arranque en Windows.
-- [data/conversaciones](data/conversaciones): audios de prueba.
+- [auditor_mejorado.py](auditor_mejorado.py): Auditoría con MNLI + embeddings.
+- [requirements.txt](requirements.txt): Dependencias.
+- [cie10_2026.json](cie10_2026.json): Catálogo CIE-10 (2026).
+- [.gitignore](.gitignore): Excluye venv, logs y cachés.
+- [start.ps1](start.ps1): Script opcional de arranque en Windows.
+- [data/conversaciones](data/conversaciones): Audios de prueba.
 
 ## Nota ética
 
