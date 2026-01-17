@@ -1,7 +1,7 @@
 
 <div align="center">
 
-# Escriba Médico Soberano — TFM
+# Escrit — TFM
 
 Generación asistida de notas clínicas (SOAP) a partir de voz/texto con auditoría de veracidad.
 
