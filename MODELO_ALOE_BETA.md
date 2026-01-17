@@ -31,14 +31,20 @@ ollama pull hf.co/mradermacher/Llama3.1-Aloe-Beta-8B-GGUF:Q4_K_M
 
 Esto descargará automáticamente el modelo (aprox. 5-7 GB).
 
-### 3. Cargar el Modelo Personalizado (Modelfile)
+### 2b. (IMPORTANTE) Crear Modelo Personalizado con Prompt Médico
 
-Opcionalmente, puedes crear un modelo personalizado con instrucciones médicas. Usa el archivo `Modelfile` incluido:
+Este proyecto incluye un `Modelfile` con el prompt especializado en medicina. Para cargarlo:
 
 ```powershell
 ollama create escriba-aloe-v3 -f Modelfile
-ollama run escriba-aloe-v3
 ```
+
+Este comando crea un modelo llamado `escriba-aloe-v3` que:
+- ✅ Usa Aloe-Beta-8B como base
+- ✅ Integra el prompt médico especializado (REGLAS DE ORO para SOAP)
+- ✅ Configura parámetros óptimos (temperatura=0.05 para precisión)
+
+**Nota:** La app usará automáticamente este modelo si lo creas. Si no lo creas, utilizará el modelo base sin el prompt personalizado.
 
 ## Verificar el Modelo
 
@@ -58,12 +64,17 @@ Desde la app:
 
 ## Características Médicas
 
-El modelo Aloe-Beta está entrenado para:
+El modelo **escriba-aloe-v3** (creado con nuestro Modelfile) está entrenado/configurado para:
 
-- Generar notas SOAP estructuradas en español
-- Preservar terminología médica precisa
-- Entender contexto rural y geriátrico
-- Sugerir diagnósticos candidatos con CIE-10
+- ✅ Generar notas SOAP estructuradas en español
+- ✅ Aplicar **REGLAS DE ORO** para máxima precisión clínica
+- ✅ Preservar terminología médica exacta (tecnicismos)
+- ✅ Capturar números precisos (TA, FC, dosis, tiempos)
+- ✅ Entender contexto rural y geriátrico
+- ✅ Sugerir diagnósticos candidatos con nivel de probabilidad
+- ✅ Mantener baja temperatura (0.05) para determinismo
+
+**Sistema Prompt:** Incluye 6 secciones + Reglas de Oro para evitar alucinaciones.
 
 ## Notas Técnicas
 

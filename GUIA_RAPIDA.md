@@ -29,6 +29,14 @@ ollama pull hf.co/mradermacher/Llama3.1-Aloe-Beta-8B-GGUF:Q4_K_M
 
 Esto tardará unos 5-10 minutos (descarga ~5-7 GB).
 
+## 3b. (IMPORTANTE) Crear Modelo Personalizado con Prompt Médico
+
+```powershell
+ollama create escriba-aloe-v3 -f Modelfile
+```
+
+Este comando crea el modelo personalizado que usará la app. **Sin este paso, no tendrá el prompt médico especializado.**
+
 ## 4. Instalar Dependencias de Python
 
 En la misma terminal (con Ollama aún corriendo):
@@ -56,7 +64,7 @@ Se abrirá automáticamente en tu navegador (http://localhost:8501).
 2. **Barra lateral** con:
    - Información del Sistema (GPU, RAM)
    - Estado de Ollama (debe decir "✅ Conectado")
-   - Selector de modelo (por defecto: el que descargaste)
+   - Selector de modelo (por defecto: **escriba-aloe-v3** ← modelo personalizado con prompt médico)
 
 ## 📁 Archivos Importantes
 
