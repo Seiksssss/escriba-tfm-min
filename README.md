@@ -1,7 +1,7 @@
 
 <div align="center">
 
-# Escriba Médico — TFM
+# Escrit — TFM
 
 Automated medical note generation (SOAP) from speech/text with fidelity audit.
 
