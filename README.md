@@ -53,16 +53,28 @@ streamlit run app.py
 
 ## Modelos (Ollama)
 
-- Descargue Ollama: https://ollama.com/download y abra la aplicación para iniciar el servicio.
-- La app intentará detectar Ollama. Si necesita cambiar el host, hágalo desde la barra lateral (`OLLAMA_HOST`).
-- Seleccione el modelo en la barra lateral (valor por defecto `escriba-tfm`).
+**Ollama es obligatorio.** Instálalo desde https://ollama.com/download, luego ejecuta:
+
+```powershell
+ollama serve
+```
+
+En otra terminal, descarga el modelo Aloe-Beta-8B:
+
+```powershell
+ollama pull hf.co/mradermacher/Llama3.1-Aloe-Beta-8B-GGUF:Q4_K_M
+```
+
+Ver instrucciones detalladas: [MODELO_ALOE_BETA.md](MODELO_ALOE_BETA.md)
+
+La app detectará Ollama automáticamente. Si necesita cambiar el host, hágalo desde la barra lateral (`OLLAMA_HOST`).
 
 ## Arquitectura (alto nivel)
 
-1. Transcripción: Whisper Large-v3 (faster-whisper) con VAD y beam search.
-2. Generación: Modelo local en Ollama. Prompt estructurado y salida en JSON para asegurar formato SOAP.
-3. Auditoría: DeBERTa MNLI (entailment), búsqueda semántica (SentenceTransformers) y análisis de modalidad.
-4. Sugerencias CIE-10: búsqueda aproximada sobre [github_min/cie10_2026.json](cie10_2026.json).
+1. **Transcripción:** Whisper Large-v3 (faster-whisper) con VAD y beam search.
+2. **Generación (Aloe-Beta):** Modelo local en Ollama (5-7 GB). Prompt estructurado y salida en JSON para asegurar formato SOAP.
+3. **Auditoría:** DeBERTa MNLI (entailment), búsqueda semántica (SentenceTransformers) y análisis de modalidad.
+4. **Sugerencias CIE-10:** Búsqueda aproximada sobre [github_min/cie10_2026.json](cie10_2026.json).
 
 ## Demostración
 
@@ -72,18 +84,23 @@ streamlit run app.py
 
 ## Solución de problemas
 
-- "Ollama no disponible": abra la app de Ollama o ejecute `ollama serve` en una terminal.
-- Descarga de modelos de `transformers`: la primera ejecución de DeBERTa puede tardar.
-- Sin GPU: todo funciona en CPU, pero más lento.
+- **Ollama no conecta:** Descarga Ollama desde https://ollama.com/download, luego ejecuta `ollama serve`.
+- **Modelo no se descarga:** Ejecuta manualmente: `ollama pull hf.co/mradermacher/Llama3.1-Aloe-Beta-8B-GGUF:Q4_K_M`
+- **Descarga de modelos de `transformers`:** La primera ejecución de DeBERTa puede tardar (descarga automática).
+- **Sin GPU:** Todo funciona en CPU, pero más lento (~30-60 seg. por informe vs. 5-10 seg. en GPU).
+
+Ver más detalles en [MODELO_ALOE_BETA.md](MODELO_ALOE_BETA.md).
 
 ## Estructura mínima incluida
 
-- [github_min/app.py](app.py): UI Streamlit + lógica principal.
-- [github_min/auditor_mejorado.py](auditor_mejorado.py): auditoría con MNLI + embeddings.
-- [github_min/requirements.txt](requirements.txt): dependencias.
-- [github_min/cie10_2026.json](cie10_2026.json): catálogo CIE-10 (2026).
-- [github_min/.gitignore](.gitignore): excluye venv, logs y cachés.
-- [github_min/start.ps1](start.ps1): script opcional de arranque en Windows.
+- [MODELO_ALOE_BETA.md](MODELO_ALOE_BETA.md): **instrucciones detalladas para configurar Aloe-Beta-8B.**
+- [app.py](app.py): UI Streamlit + lógica principal.
+- [auditor_mejorado.py](auditor_mejorado.py): auditoría con MNLI + embeddings.
+- [requirements.txt](requirements.txt): dependencias.
+- [cie10_2026.json](cie10_2026.json): catálogo CIE-10 (2026).
+- [.gitignore](.gitignore): excluye venv, logs y cachés.
+- [start.ps1](start.ps1): script opcional de arranque en Windows.
+- [data/conversaciones](data/conversaciones): audios de prueba.
 
 ## Nota ética
 

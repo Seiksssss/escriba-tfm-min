@@ -9,6 +9,9 @@ evaluate
 psutil
 pandas
 
+# Client-side audio recording (Streamlit component)
+audio-recorder-streamlit
+
 # Auditor mejorado (v0.2) - NLP/ML enhancements
 transformers>=4.30.0
 sentence-transformers>=2.2.0
