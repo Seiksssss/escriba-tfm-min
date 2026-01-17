@@ -24,10 +24,10 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # --- Dataset paths ---
-DATA_DIR_EN = os.path.join("data", "RAW", "CSV", "har1MTS_Dialogue-Clinical_Note")
+DATA_DIR_EN = os.path.join("data", "mtsdialog_en")
 VALID_PATH_EN = os.path.join(DATA_DIR_EN, "MTS-Dialog-Validation.csv")
 
-DATA_DIR_ES = os.path.join("data", "RAW", "CSV", "mts_dialog_spanish_csvs")
+DATA_DIR_ES = os.path.join("data", "mtsdialog_es")
 VALID_PATH_ES = os.path.join(DATA_DIR_ES, "validation_es.csv")
 
 # --- Helpers ---
